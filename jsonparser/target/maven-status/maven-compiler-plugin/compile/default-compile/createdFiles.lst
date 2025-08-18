@@ -1,4 +1,6 @@
+com/parser/LexerReadError.class
 com/parser/Parser.class
+com/parser/JsonParserError.class
 com/parser/Lexer.class
 com/parser/JsonToken$TokenType.class
 com/parser/Main.class

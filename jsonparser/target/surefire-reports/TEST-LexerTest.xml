@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="LexerTest" time="0.024" tests="2" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="LexerTest" time="0.041" tests="5" errors="1" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="24"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -12,7 +12,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-24-openjdk/lib"/>
-    <property name="sun.java.command" value="/home/ardy/Dev/java/jsonParser-java/jsonparser/target/surefire/surefirebooter-20250813232454299_3.jar /home/ardy/Dev/java/jsonParser-java/jsonparser/target/surefire 2025-08-13T23-24-54_213-jvmRun1 surefire-20250813232454299_1tmp surefire_0-20250813232454299_2tmp"/>
+    <property name="sun.java.command" value="/home/ardy/Dev/java/jsonParser-java/jsonparser/target/surefire/surefirebooter-20250818134312923_3.jar /home/ardy/Dev/java/jsonParser-java/jsonparser/target/surefire 2025-08-18T13-43-12_823-jvmRun1 surefire-20250818134312923_1tmp surefire_0-20250818134312923_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/home/ardy/Dev/java/jsonParser-java/jsonparser/target/test-classes:/home/ardy/Dev/java/jsonParser-java/jsonparser/target/classes:/home/ardy/.m2/repository/org/apache/logging/log4j/log4j-api/2.6.1/log4j-api-2.6.1.jar:/home/ardy/.m2/repository/org/junit/jupiter/junit-jupiter/5.13.4/junit-jupiter-5.13.4.jar:/home/ardy/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.13.4/junit-jupiter-api-5.13.4.jar:/home/ardy/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/home/ardy/.m2/repository/org/junit/platform/junit-platform-commons/1.13.4/junit-platform-commons-1.13.4.jar:/home/ardy/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/home/ardy/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.13.4/junit-jupiter-params-5.13.4.jar:/home/ardy/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.13.4/junit-jupiter-engine-5.13.4.jar:/home/ardy/.m2/repository/org/junit/platform/junit-platform-engine/1.13.4/junit-platform-engine-1.13.4.jar:/home/ardy/.m2/repository/org/mockito/mockito-core/5.18.0/mockito-core-5.18.0.jar:/home/ardy/.m2/repository/net/bytebuddy/byte-buddy/1.17.5/byte-buddy-1.17.5.jar:/home/ardy/.m2/repository/net/bytebuddy/byte-buddy-agent/1.17.5/byte-buddy-agent-1.17.5.jar:/home/ardy/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -27,7 +27,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
-    <property name="surefire.real.class.path" value="/home/ardy/Dev/java/jsonParser-java/jsonparser/target/surefire/surefirebooter-20250813232454299_3.jar"/>
+    <property name="surefire.real.class.path" value="/home/ardy/Dev/java/jsonParser-java/jsonparser/target/surefire/surefirebooter-20250818134312923_3.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="24.0.1"/>
     <property name="user.name" value="ardy"/>
@@ -53,9 +53,26 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="68.0"/>
   </properties>
-  <testcase name="tokenize_basic" classname="LexerTest" time="0.002">
+  <testcase name="tokenize_basic" classname="LexerTest" time="0.001">
     <system-err><![CDATA[ERROR StatusLogger Log4j2 could not find a logging implementation. Please add log4j-core to the classpath. Using SimpleLogger to log to the console...
 ]]></system-err>
   </testcase>
+  <testcase name="tokenize_withObject" classname="LexerTest" time="0.004">
+    <error message="Cannot invoke &quot;String.equals(Object)&quot; because the return value of &quot;com.parser.JsonToken.getValue()&quot; is null" type="java.lang.NullPointerException"><![CDATA[java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because the return value of "com.parser.JsonToken.getValue()" is null
+	at com.parser.JsonToken.equals(JsonToken.java:82)
+	at java.base/java.util.Objects.equals(Objects.java:62)
+	at java.base/java.util.ImmutableCollections$AbstractImmutableList.equals(ImmutableCollections.java:315)
+	at org.junit.jupiter.api.AssertionUtils.objectsAreEqual(AssertionUtils.java:110)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:181)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at LexerTest.tokenize_withObject(LexerTest.java:86)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+]]></error>
+  </testcase>
+  <testcase name="tokenize_withObject_invalid" classname="LexerTest" time="0.001"/>
+  <testcase name="tokenize_withDoubleQuotes" classname="LexerTest" time="0.002"/>
   <testcase name="openFileReader_sucess" classname="LexerTest" time="0.001"/>
 </testsuite>
